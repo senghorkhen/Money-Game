@@ -24,6 +24,9 @@ body {
   margin: 5px;
   position: relative;
   transform: scale(1);
+  /* add css */
+  transform-style: preserve-3d;
+  transition: transform .5s;
   box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
 
@@ -36,6 +39,11 @@ body {
   transform: rotateY(180deg);
 }
 
+/* add css style */
+.front-face {
+  transform: rotateY(180deg);
+}
+
 .front-face,
 .back-face {
   width: 100%;
@@ -44,4 +52,6 @@ body {
   position: absolute;
   border-radius: 5px;
   background: pink;
+  /* add this css */
+  backface-visibility: hidden;
 }
