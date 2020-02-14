@@ -1,5 +1,13 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  /* easy to leng width and height */
+  box-sizing: border-box;
+}
 body {
+  height: 100vh;
   background: #060AB2;
 }
-
+img{
+  width: 100px;
+}
