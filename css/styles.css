@@ -8,33 +8,36 @@ body {
   height: 100vh;
   background: #060AB2;
   display: flex;
+
 }
 .memory-game {
   width: 640px;
   height: 640px;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
 .memory-card {
   width: calc(25% - 10px);
-  height: calc(33.33% - 10px);
-  margin: 5px;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-  /* parents vea mix keu vea sdab tam parents ber ma vea mean vea mean ng*/
-  position: relative;
+ height: calc(33.33% - 10px);
+ margin: 5px;
+ position: relative;
+ transform: scale(1);
+ box-shadow: 1px 1px 1px rgba(0,0,0, 0.3);
 }
-.memory-card :active{
+.memory-card:active {
   transform: scale(0.97);
-  transition: transform 0.2s;
+  transition: transform  0.2s;
+}
+.memory-card.flip {
+  transform: translateY(180deg);
 }
 .front-face,
 .back-face {
   width: 100%;
   height: 100%;
-  /* background: #1c7ccc; */
-  background: pink;
+  background: #1c7ccc;
+  position: absolute;
   padding: 20px;
   border-radius: 5px;
-  position: absolute; 
 }
