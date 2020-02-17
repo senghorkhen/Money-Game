@@ -8,7 +8,8 @@ let secondCard = null;
 let hasFlippedCard = false;
 function flipCard() {
   this.classList.add('flip');
-  // catch value one one
+  
+  // // catch value one one
   // console.log(this.dataset.framework);
 
   if(!hasFlippedCard){
@@ -18,26 +19,30 @@ function flipCard() {
   }else {
     hasFlippedCard = false;
     secondCard = this;  
-    // console.log(this.dataset.framework);
-
     // is match
-    let isMatchCard = firstCard.dataset.framework === secondCard.dataset.framework;
-    if(isMatchCard){
-      // remove event listener
-      firstCard.removeEventListener('click', flipCard);
-      secondCard.removeEventListener('click', flipCard);
-      // console.log("Yes");
-    }else {
-      const TIME_FLIP = 1500;
-      setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip'); 
-      }, TIME_FLIP);
-      // console.log("No");
-    }
+    checkCardMatch();
   } 
 }
 
-// factory the code now
+// factory the code
+function checkCardMatch() {
+  let isMatchCard = firstCard.dataset.framework === secondCard.dataset.framework;
+  if(isMatchCard) {
+    removeEventFromCard();
+  }else {
+    unFlipCards();
+  }
+}
+function removeEventFromCard() {
+  firstCard.removeEventListener('click', flipCard);
+      secondCard.removeEventListener('click', flipCard);
+}
+function unFlipCards() {
+  const TIME_FLIP = 1500;
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip'); 
+  }, TIME_FLIP);
+}
 
 cards.forEach(card => card.addEventListener('click', flipCard));
