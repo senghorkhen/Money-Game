@@ -45,4 +45,14 @@ function unFlipCards() {
   }, TIME_FLIP);
 }
 
+// randomly
+// function run first ban tea mdong
+(function shuffle(){
+  cards.forEach(card => {
+    let randomCard = Math.floor(Math.random() *12); // random pi 0 to 12
+    card.style.order =randomCard;
+  });
+  // console.log(randomCard);
+}) ();
+
 cards.forEach(card => card.addEventListener('click', flipCard));
